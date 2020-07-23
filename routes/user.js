@@ -7,7 +7,7 @@ const router = express.Router();
 router.route("/login").post(async (req, res) => {
   console.log("you hit the login");
   await User.findOne(
-    { $or: [{ username: req.body.username }, { email: req.body.username }] },
+    { username: req.body.username },
     (err, user) => {
     if(err) return res.json({Error:err});
       if (user == null) {
@@ -20,6 +20,7 @@ router.route("/login").post(async (req, res) => {
           
           return res.json({
             success: true,
+            data:user,
             msg: "Authentication successful!",
           });
         } else {
@@ -50,6 +51,20 @@ router.route("/register").post(async (req, res) => {
     });
 });
 
-
+router.route("/getDepartment/:dapartment").get((req,res)=>{
+  await User.find(
+    {},
+    (err, user) => {
+    if(err) return res.json({Error:err});
+    else if (user == null) {
+      return  res.json({
+         data: [],
+         
+       });
+     } 
+     else return res.json({data:user});
+    }
+  );
+})
 
 module.exports = router;
