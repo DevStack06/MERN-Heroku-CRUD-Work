@@ -1,12 +1,11 @@
 const express = require("express");
-const User = require("../model/user.model");
-let config = require("../config");
+const User = require("../models/user.model");
 const router = express.Router();
 
 
-router.route("/login").post(async (req, res) => {
+router.route("/login").post( (req, res) => {
   console.log("you hit the login");
-  await User.findOne(
+   User.findOne(
     { username: req.body.username },
     (err, user) => {
     if(err) return res.json({Error:err});
@@ -34,25 +33,25 @@ router.route("/login").post(async (req, res) => {
   );
 });
 
-router.route("/register").post(async (req, res) => {
+router.route("/register").post( (req, res) => {
   console.log("you hit the register");
   const user = new User({
     username: req.body.username,
     department: req.body.department,
     password: req.body.password,
   });
-  await user
+   user
     .save()
     .then(() => {
-      return res.json(user);
+      return res.json({msg:"Registered succussfully",data:user});
     })
     .catch((err) => {
       return res.status(400).json({ Error: err });
     });
 });
 
-router.route("/getDepartment/:dapartment").get((req,res)=>{
-  await User.find(
+router.route("/getData/").get((req,res)=>{
+   User.find(
     {},
     (err, user) => {
     if(err) return res.json({Error:err});

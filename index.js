@@ -28,15 +28,15 @@ app.use(express.static(path.join(__dirname, "frontend", "build")));
 app.use(cors());
 //routes
 const userroute = require("./routes/user");
-const fromRoute = require("./routes/form");
+// const fromRoute = require("./routes/form");
 app.use("/user", userroute);
-app.use("/form", fromRoute);
+// app.use("/form", fromRoute);
 
 //acknoledge api
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
 });
 
-app.listen(PORT, "0.0.0.0", () =>
+app.listen(PORT, () =>
   console.log(`your app is running on port ${PORT} enjoy developing`)
 );
