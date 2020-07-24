@@ -25,9 +25,9 @@ app.use(express.static(path.join(__dirname, "frontend", "build")));
 app.use(cors());
 //routes
 const userroute = require("./routes/user");
-// const fromRoute = require("./routes/form");
+const fromRoute = require("./routes/form");
 app.use("/user", userroute);
-// app.use("/form", fromRoute);
+app.use("/form", fromRoute);
 
 //acknoledge api
 app.get("*", (req, res) => {

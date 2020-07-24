@@ -45,9 +45,9 @@ router.route("/register").post((req, res) => {
     });
 });
 
-router.route("/getData/:username").get((req, res) => {
+router.route("/getData/:department").get((req, res) => {
   User.find(
-    { username: { $ne: req.params.username } },
+    { department: { $ne: req.params.department } },
     "username department",
     (err, user) => {
       if (err) return res.json({ Error: err });

@@ -20,4 +20,80 @@ router.route("/Add/:username").post((req, res) => {
     });
 });
 
+router.route("/pending/:username").get((req, res) => {
+  Form.find(
+    { $and: [{ username: req.params.username }, { status: "Pnding" }] },
+
+    (err, formdata) => {
+      if (err) return res.json({ Error: err });
+      else if (formdata == null) {
+        return res.json({
+          data: [],
+        });
+      } else return res.json({ data: formdata });
+    }
+  );
+});
+
+router.route("/penApprovel/:username").get((req, res) => {
+  Form.find(
+    {
+      $and: [{ respectiveUsername: req.params.username }, { status: "Pnding" }],
+    },
+
+    (err, formdata) => {
+      if (err) return res.json({ Error: err });
+      else if (formdata == null) {
+        return res.json({
+          data: [],
+        });
+      } else return res.json({ data: formdata });
+    }
+  );
+});
+
+router.route("/approved/:username").get((req, res) => {
+  Form.find(
+    { $and: [{ username: req.params.username }, { status: "Approved" }] },
+
+    (err, formdata) => {
+      if (err) return res.json({ Error: err });
+      else if (formdata == null) {
+        return res.json({
+          data: [],
+        });
+      } else return res.json({ data: formdata });
+    }
+  );
+});
+
+router.route("/rejected/:username").get((req, res) => {
+  Form.find(
+    { $and: [{ username: req.params.username }, { status: "Rejected" }] },
+
+    (err, formdata) => {
+      if (err) return res.json({ Error: err });
+      else if (formdata == null) {
+        return res.json({
+          data: [],
+        });
+      } else return res.json({ data: formdata });
+    }
+  );
+});
+
+router.route("/changeStatus/:username").patch((req, res) => {
+  Form.findOneAndUpdate(
+    { respectiveUsername: req.params.username },
+    { $set: { status: req.body.status } },
+    (err, result) => {
+      if (err) return res.status(500).json({ msg: err });
+      const msg = {
+        msg: "status successfully updated",
+        data: result,
+      };
+      return res.json(msg);
+    }
+  );
+});
 module.exports = router;
