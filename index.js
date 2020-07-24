@@ -1,21 +1,18 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const path = require("path")
-require('dotenv').config();
+const path = require("path");
+require("dotenv").config();
 const PORT = process.env.Port || 5000;
 
 const mongoose = require("mongoose");
 
 //database connection
-mongoose.connect(
-    process.env.MongoURL,
-    {
-      useNewUrlParser: true,
-      useCreateIndex: true,
-      useUnifiedTopology: true,
-    }
-  );
+mongoose.connect(process.env.MongoURL, {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true,
+});
 const connection = mongoose.connection;
 
 connection.once("open", () =>
@@ -34,7 +31,9 @@ app.use("/user", userroute);
 
 //acknoledge api
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
+  res.sendFile(
+    path.join(__dirname, "frontend", "build", "public", "index.html")
+  );
 });
 
 app.listen(PORT, () =>
