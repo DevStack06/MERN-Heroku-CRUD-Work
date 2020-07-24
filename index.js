@@ -3,15 +3,18 @@ const app = express();
 const cors = require("cors");
 const path = require("path");
 require("dotenv").config();
+const http = require("http");
+const socketIo = require("socket.io");
 const PORT = process.env.Port || 5000;
 
 const mongoose = require("mongoose");
-
+const server = http.createServer(app);
 //database connection
 mongoose.connect(process.env.MongoURL, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true,
+  useFindAndModify: false,
 });
 const connection = mongoose.connection;
 
@@ -20,6 +23,8 @@ connection.once("open", () =>
 );
 
 //middleware
+
+const io = socketIo(server);
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "frontend", "build")));
 app.use(cors());

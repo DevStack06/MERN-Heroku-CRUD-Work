@@ -22,7 +22,7 @@ router.route("/Add/:username").post((req, res) => {
 
 router.route("/pending/:username").get((req, res) => {
   Form.find(
-    { $and: [{ username: req.params.username }, { status: "Pnding" }] },
+    { $and: [{ username: req.params.username }, { status: "Pending" }] },
 
     (err, formdata) => {
       if (err) return res.json({ Error: err });
@@ -38,7 +38,10 @@ router.route("/pending/:username").get((req, res) => {
 router.route("/penApprovel/:username").get((req, res) => {
   Form.find(
     {
-      $and: [{ respectiveUsername: req.params.username }, { status: "Pnding" }],
+      $and: [
+        { respectiveUsername: req.params.username },
+        { status: "Pending" },
+      ],
     },
 
     (err, formdata) => {
@@ -83,8 +86,15 @@ router.route("/rejected/:username").get((req, res) => {
 });
 
 router.route("/changeStatus/:username").patch((req, res) => {
+  console.log(req.body.respectiveUsername);
   Form.findOneAndUpdate(
-    { respectiveUsername: req.params.username },
+    {
+      $and: [
+        { username: req.body.respectiveUsername },
+        { respectiveUsername: req.params.username },
+      ],
+    },
+
     { $set: { status: req.body.status } },
     (err, result) => {
       if (err) return res.status(500).json({ msg: err });
@@ -92,6 +102,7 @@ router.route("/changeStatus/:username").patch((req, res) => {
         msg: "status successfully updated",
         data: result,
       };
+      console.log(req.params.username);
       return res.json(msg);
     }
   );
