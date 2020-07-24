@@ -1,0 +1,13 @@
+.tablecss {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.buttoncss {
+  width: fit-content;
+  left: 20%;
+  /* position: absolute; */
+}
+.table {
+  min-width: 450;
+}

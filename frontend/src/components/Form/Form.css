@@ -1,0 +1,10 @@
+.form {
+  width: 25%;
+  left: 30%;
+  position: absolute;
+}
+
+.submit {
+  padding-top: 40px;
+  height: 80px;
+}

@@ -1,0 +1,14 @@
+.navbar {
+  padding: 1rem 8rem !important;
+}
+
+.navbar .mr-sm-2,
+.mx-sm-2 {
+  margin-left: 2.5rem !important;
+  margin-right: 2.5rem !important;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
