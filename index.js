@@ -5,7 +5,7 @@ const path = require("path");
 require("dotenv").config();
 const http = require("http");
 const socketIo = require("socket.io");
-const PORT = process.env.Port || 5000;
+const PORT = process.env.PORT || 5000;
 
 const mongoose = require("mongoose");
 const server = http.createServer(app);
