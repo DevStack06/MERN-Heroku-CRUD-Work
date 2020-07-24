@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index",
-    "dev": "nodemon index"
+    "dev": "nodemon index",
+    "heroku-postbuild": "cd frontend && npm install --only=dev && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
@@ -16,5 +17,8 @@
     "mongoose": "^5.9.25",
     "nodemon": "^2.0.4",
     "socket.io": "^2.3.0"
+  },
+  "engines": {
+    "node": "12.x"
   }
 }
