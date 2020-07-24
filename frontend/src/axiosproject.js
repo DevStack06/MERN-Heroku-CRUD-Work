@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://immense-dawn-31229.herokuapp.com",
   headers: {
     "Access-Control-Allow-Origin": "*",
     "Content-Type": "application/json",
