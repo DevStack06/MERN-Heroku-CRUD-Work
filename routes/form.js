@@ -85,15 +85,9 @@ router.route("/rejected/:username").get((req, res) => {
   );
 });
 
-router.route("/changeStatus/:username").patch((req, res) => {
-  console.log(req.body.respectiveUsername);
+router.route("/changeStatus").patch((req, res) => {
   Form.findOneAndUpdate(
-    {
-      $and: [
-        { username: req.body.respectiveUsername },
-        { respectiveUsername: req.params.username },
-      ],
-    },
+    { _id: req.body._id },
 
     { $set: { status: req.body.status } },
     (err, result) => {
@@ -103,6 +97,7 @@ router.route("/changeStatus/:username").patch((req, res) => {
         data: result,
       };
       console.log(req.params.username);
+      console.log(msg);
       return res.json(msg);
     }
   );

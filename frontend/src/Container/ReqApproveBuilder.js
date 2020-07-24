@@ -36,27 +36,25 @@ class ReqApproveBuilder extends Component {
       .catch((err) => console.log(err));
   }
 
-  onAcceptClick = (respectiveUsername) => {
-    let username = "";
-    username = localStorage.getItem("username");
+  onAcceptClick = (id) => {
     const data = {
-      respectiveUsername: respectiveUsername,
+      _id: id,
       status: "Approved",
     };
     axios
-      .patch(`/form/changeStatus/${username}`, data)
+      .patch(`/form/changeStatus/`, data)
       .then((res) => console.log(res.data));
     window.location.reload();
   };
-  onRejectClick = (respectiveUsername) => {
+  onRejectClick = (id) => {
     let username = "";
     username = localStorage.getItem("username");
     const data = {
-      respectiveUsername: respectiveUsername,
+      _id: id,
       status: "Rejected",
     };
     axios
-      .patch(`/form/changeStatus/${username}`, data)
+      .patch(`/form/changeStatus/`, data)
       .then((res) => console.log(res.data));
     window.location.reload();
   };
@@ -90,13 +88,13 @@ class ReqApproveBuilder extends Component {
                   <TableCell align="right">
                     <button
                       class="btn btn-primary"
-                      onClick={() => this.onAcceptClick(row.username)}
+                      onClick={() => this.onAcceptClick(row._id)}
                     >
                       Accept
                     </button>{" "}
                     <button
                       class="btn btn-danger"
-                      onClick={() => this.onRejectClick(row.username)}
+                      onClick={() => this.onRejectClick(row._id)}
                     >
                       Reject
                     </button>

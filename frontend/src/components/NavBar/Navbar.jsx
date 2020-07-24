@@ -9,8 +9,8 @@ const navbar = (props) => {
     console.log("logout");
     localStorage.clear();
     sessionStorage.clear();
-    window.location.reload();
     history.push("/");
+    window.location.reload();
   };
 
   let userUI = (
