@@ -11,3 +11,18 @@
 .table {
   min-width: 450;
 }
+
+.home {
+  left: 20%;
+  right: 20%;
+  text-align: center;
+  position: absolute;
+}
+.note {
+  color: red;
+}
+.info {
+  font-size: 18px;
+  color: rgb(16, 206, 32);
+  /* text-align: left !important; */
+}
