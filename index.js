@@ -29,7 +29,7 @@ connection.once("open", () =>
 
 const io = socketIo(server);
 app.use(express.json());
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/frontend" + "/build"));
 app.use(cors());
 //routes
 const userroute = require("./routes/user");
@@ -39,7 +39,7 @@ app.use("/form", fromRoute);
 
 //acknoledge api
 app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "public", "index.html"));
+  response.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
 });
 
 app.listen(PORT, () =>
