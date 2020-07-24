@@ -37,7 +37,7 @@ class Signup extends Component {
 
           localStorage.setItem("authenticate", 1);
           localStorage.setItem("username", this.state.username);
-          localStorage.setItem("department", this.state.department);
+          localStorage.setItem("department", res.data.data.department);
 
           window.location.reload();
         })
