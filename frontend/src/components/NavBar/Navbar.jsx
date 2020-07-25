@@ -89,9 +89,7 @@ const navbar = (props) => {
         <NavLink className="navbar-brand" to="/" exact>
           SWITCHON
         </NavLink>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          {userUI}
-        </div>
+        <div id="navbarSupportedContent">{userUI}</div>
       </nav>
     </React.Fragment>
   );
