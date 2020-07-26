@@ -41,7 +41,7 @@ For executing the backend server you have to execute the following codes-:
 
 3. It will launch the server on [http://[Your IP address]:5000](http://localhost:5000) this url.
 
-## **Front End Code **
+## **Front End Code**
 
 1.The Front End folder consist the react project. You can run it by running the below codes on the terminal for installing all the npm packages
 
