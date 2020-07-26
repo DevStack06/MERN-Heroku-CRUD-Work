@@ -1,4 +1,4 @@
-### Hello geeks ,I'm MERN Stack developer, This repository consist both Backend and Frontend code of the assignment :smile: .
+### I'm MERN Stack developer, This repository consist both Backend and Frontend code of the assignment :smile: .
 
 #### The working and deployed version of this project [web-app-link](https://dev-stack-balram.herokuapp.com/)
 
@@ -41,7 +41,7 @@ For executing the backend server you have to execute the following codes-:
 
 3. It will launch the server on [http://[Your IP address]:5000](http://localhost:5000) this url.
 
-## **Front End Code (Not updated)**
+## **Front End Code **
 
 1.The Front End folder consist the react project. You can run it by running the below codes on the terminal for installing all the npm packages
 
