@@ -10,15 +10,12 @@ const PORT = process.env.PORT || 5000;
 const mongoose = require("mongoose");
 const server = http.createServer(app);
 //database connection
-mongoose.connect(
-  "mongodb+srv://BlogUser:jAVhPqR9YORwjwXW@cluster0-fc8do.gcp.mongodb.net/SwitchonDB?retryWrites=true&w=majority",
-  {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-  }
-);
+mongoose.connect(process.env.MongoURL, {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+});
 const connection = mongoose.connection;
 
 connection.once("open", () =>
