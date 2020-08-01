@@ -87,7 +87,7 @@ const navbar = (props) => {
         style={{ backgroundColor: "#e3f2fd" }}
       >
         <NavLink className="navbar-brand" to="/" exact>
-          SWITCHON
+          Dev Stack
         </NavLink>
         <div id="navbarSupportedContent">{userUI}</div>
       </nav>

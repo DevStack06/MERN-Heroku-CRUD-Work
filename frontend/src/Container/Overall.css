@@ -17,6 +17,7 @@
   right: 20%;
   text-align: center;
   position: absolute;
+  padding-bottom: 60px;
 }
 .note {
   color: red;

@@ -4,7 +4,7 @@ class AppBuilder extends Component {
   render() {
     return (
       <div className="home">
-        <h1>Hi this is Balram Rathore. Welcome on SwitchOn Assignment</h1>
+        <h1>Hi this is Balram Rathore. A Full Stack Developr</h1>
         <h3 className="note">
           You need to sign In or Sign Up first to use this Web App
         </h3>
