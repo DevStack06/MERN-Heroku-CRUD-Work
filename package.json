@@ -16,7 +16,7 @@
     "express": "^4.17.1",
     "mongoose": "^5.9.25",
     "nodemon": "^2.0.4",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.4.0"
   },
   "engines": {
     "node": "12.x"
